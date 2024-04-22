@@ -1,5 +1,13 @@
 import 'package:equatable/equatable.dart';
 
+/// Represents a failure that occurred during an operation.
+///
+/// The [Failure] class is a base class for representing failures that can occur
+/// during an operation. It contains information about the status code and an
+/// error message.
+///
+/// The [ApiFailure] class is a subclass of [Failure] that represents a failure
+/// that occurred during an API request.
 class Failure extends Equatable {
   const Failure({required this.statusCode, required this.message});
 
