@@ -1,4 +1,4 @@
-import 'package:tdd_clean_arch/core/utils/typedef.dart';
+import '../utils/typedef.dart';
 
 /// Abstract base class for use cases that accept parameters.
 ///
