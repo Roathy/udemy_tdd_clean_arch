@@ -24,13 +24,13 @@ import 'package:tdd_clean_arch/src/features/authentication/domain/entities/user.
 /// type to represent the success or failure of the operations.
 /// The actual handling of exceptions should be delegated to the data layer.
 abstract class AuthenticationRepository {
-  /// Creates a new user with the provided [createdAt], [name], and [avatarUrl].
+  /// Creates a new user with the provided [createdAt], [name], and [avatar].
   ///
   /// Returns a `ResultVoid` indicating the success or failure of the operation.
   ResultVoid createUser({
     required name,
     required createdAt,
-    required avatarUrl,
+    required avatar,
   });
 
   /// Retrieves a list of all registered users.
