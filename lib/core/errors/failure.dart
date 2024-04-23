@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import 'exception.dart';
+
 /// Represents a failure that occurred during an operation.
 ///
 /// The [Failure] class is a base class for representing failures that can occur
@@ -23,4 +25,10 @@ class Failure extends Equatable {
 
 class ApiFailure extends Failure {
   const ApiFailure({required super.statusCode, required super.message});
+
+  ApiFailure.fromException(ApiException exception)
+      : this(
+          message: exception.message,
+          statusCode: exception.statusCode,
+        );
 }
