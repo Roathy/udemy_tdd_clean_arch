@@ -5,7 +5,7 @@ import 'package:tdd_clean_arch/src/features/authentication/domain/entities/user.
 import 'package:tdd_clean_arch/src/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:tdd_clean_arch/src/features/authentication/domain/usecases/get_users.dart';
 
-class MockAuthRepo extends Mock implements AuthenticationRepository {}
+import 'authentication_repository.mock.dart';
 
 void main() {
   late AuthenticationRepository repository;
@@ -30,7 +30,7 @@ void main() {
     final result = await usecase();
 
     // assert
-    expect(result, equals(List));
+    expect(result, equals(const Right(tResponse)));
     verify(() => repository.getUsers()).called(1);
     verifyNoMoreInteractions(repository);
   });
