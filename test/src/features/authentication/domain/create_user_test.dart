@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:tdd_clean_arch/src/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:tdd_clean_arch/src/features/authentication/domain/usecases/create_user.dart';
 
-class MockAuthRepo extends Mock implements AuthenticationRepository {}
+import 'usecases/authentication_repository.mock.dart';
 
 void main() {
   late CreateUser usecase;
@@ -23,9 +23,9 @@ void main() {
     // con null en por éxito
     when(
       () => repository.createUser(
-        createdAt: any(named: 'createdAt'),
         name: any(named: 'name'),
-        avatarUrl: any(named: 'avatarUrl'),
+        avatar: any(named: 'avatar'),
+        createdAt: any(named: 'createdAt'),
       ),
       // enforce the answer that you need
     ).thenAnswer((_) async => const Right(null));
@@ -43,7 +43,7 @@ void main() {
     verify(() => repository.createUser(
           createdAt: params.createdAt,
           name: params.name,
-          avatarUrl: params.avatarUrl,
+          avatar: params.avatar,
         )).called(1);
 
     // verify that all communication is terminated
