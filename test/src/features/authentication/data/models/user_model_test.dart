@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tdd_clean_arch/src/features/authentication/data/user_model.dart';
+import 'package:tdd_clean_arch/src/features/authentication/data/models/user_model.dart';
 import 'package:tdd_clean_arch/src/features/authentication/domain/entities/user.dart';
 
 import '../../../../../fixtures/fixture_reader.dart';
