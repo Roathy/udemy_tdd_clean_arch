@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:tdd_clean_arch/core/errors/exception.dart';
-import 'package:tdd_clean_arch/core/utils/constants.dart';
 
+import '../../../../../core/errors/exception.dart';
+import '../../../../../core/utils/constants.dart';
 import '../../../../../core/utils/typedef.dart';
 import '../models/user_model.dart';
 
@@ -36,9 +36,12 @@ class AuthRemoteDataSourceImpl implements AuthenticationRemoteDataSource {
       final response = await _client.post(Uri.https(kBaseUrl, createUserEndPoint),
           body: jsonEncode({
             'name': name,
-            'avatar': avatar,
+            // 'avatar': avatar,
             'createdAt': createdAt
-          }));
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          });
       if (response.statusCode != 200 && response.statusCode != 201) {
         throw ApiException(
           message: response.body,
