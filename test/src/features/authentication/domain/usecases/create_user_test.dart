@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:tdd_clean_arch/src/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:tdd_clean_arch/src/features/authentication/domain/usecases/create_user.dart';
 
-import 'usecases/authentication_repository.mock.dart';
+import 'authentication_repository.mock.dart';
 
 void main() {
   late CreateUser usecase;
