@@ -59,11 +59,14 @@ void main() {
         // assert
         expect(() async => methodCall(name: 'name', avatar: 'avatar', createdAt: 'createdAt'), throwsA(const ApiException(message: 'test server error', statusCode: 400)));
         verify(() => client.post(Uri.https(kBaseUrl, createUserEndPoint),
-            body: jsonEncode({
-              'name': 'name',
-              'avatar': 'avatar',
-              'createdAt': 'createdAt'
-            }))).called(1);
+                body: jsonEncode({
+                  'name': 'name',
+                  'avatar': 'avatar',
+                  'createdAt': 'createdAt'
+                }),
+                headers: {
+                  'Content-Type': 'Application/json'
+                })).called(1);
         verifyNoMoreInteractions(client);
       });
     });
