@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:tdd_clean_arch/src/features/authentication/domain/entities/user.dart';
 
+import '../../domain/entities/user.dart';
 import '../../domain/usecases/create_user.dart';
 import '../../domain/usecases/get_users.dart';
 
