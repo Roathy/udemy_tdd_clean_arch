@@ -13,29 +13,13 @@ import 'package:tdd_clean_arch/src/features/authentication/domain/entities/user.
 // y las excepciones son propias de los problemas con servidores
 // por lo tanto la capa Data va a recibir y modelar esa Exception
 // en un Failure
-/// Defines the contract for an authentication repository.
-///
-/// The `AuthenticationRepository` interface defines the basic operations
-/// for managing user authentication, including creating new users and
-/// retrieving a list of existing users.
-///
-/// Implementations of this interface should not deal with exceptions
-/// directly, but rather return a custom `ResultVoid` or `ResultFuture<List<User>>`
-/// type to represent the success or failure of the operations.
-/// The actual handling of exceptions should be delegated to the data layer.
+
 abstract class AuthenticationRepository {
-  /// Creates a new user with the provided [createdAt], [name], and [avatar].
-  ///
-  /// Returns a `ResultVoid` indicating the success or failure of the operation.
   ResultVoid createUser({
     required name,
     required createdAt,
     required avatar,
   });
 
-  /// Retrieves a list of all registered users.
-  ///
-  /// Returns a `ResultFuture<List<User>>` containing the list of users, or
-  /// an error if the operation fails.
   ResultFuture<List<User>> getUsers();
 }
