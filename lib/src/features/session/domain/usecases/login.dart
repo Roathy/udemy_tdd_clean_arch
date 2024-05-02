@@ -10,7 +10,7 @@ class Login extends UsecaseWithParams<void, LoginCredentialsParams> {
   final AuthRepo _repository;
 
   @override
-  ResultVoid call(LoginCredentialsParams params) async => _repository.login(
+  ResultFuture<dynamic> call(LoginCredentialsParams params) async => _repository.login(
         email: params.email,
         password: params.password,
       );
