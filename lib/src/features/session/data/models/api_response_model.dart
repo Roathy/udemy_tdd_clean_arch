@@ -36,4 +36,6 @@ class ApiResponseModel extends ApiResponse {
       data: data ?? this.data,
     );
   }
+
+  String toJson() => jsonEncode(toMap());
 }
