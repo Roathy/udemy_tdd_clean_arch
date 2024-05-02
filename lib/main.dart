@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/services/injection_container.dart';
-import 'src/features/authentication/presentation/cubit/authentication_cubit.dart';
-import 'src/features/authentication/presentation/views/home_screen.dart';
+import 'src/features/session/presentation/cubit/authentication_cubit.dart';
+import 'src/features/session/presentation/views/home_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
