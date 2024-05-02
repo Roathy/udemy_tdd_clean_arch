@@ -60,7 +60,10 @@ class AuthRemoteDataSourceImpl implements AuthenticationRemoteDataSource {
     try {
       final response = await _client.get(Uri.https(kBaseUrl, getUsersEndPoint));
       if (response.statusCode != 200 && response.statusCode != 201) {
-        throw ApiException(message: response.body, statusCode: response.statusCode);
+        throw ApiException(
+          message: response.body,
+          statusCode: response.statusCode,
+        );
       }
       return List<DataMap>.from(jsonDecode(response.body) as List).map((userData) => UserModel.fromMap(userData)).toList();
     } on ApiException {
