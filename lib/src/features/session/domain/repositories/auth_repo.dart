@@ -1,7 +1,7 @@
 import '../../../../../core/utils/typedef.dart';
 
 abstract class AuthRepo {
-  ResultVoid login({
+  ResultFuture login({
     required email,
     required password,
   });
