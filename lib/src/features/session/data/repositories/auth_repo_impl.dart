@@ -12,13 +12,13 @@ class AuthRepoImpl implements AuthRepo {
   final AuthRemoteDataSource _remoteDataSource;
 
   @override
-  ResultVoid login({
+  ResultFuture login({
     required email,
     required password,
   }) async {
     try {
-      await _remoteDataSource.login(email: email, password: password);
-      return const Right(null);
+      final result = await _remoteDataSource.login(email: email, password: password);
+      return Right(result);
     } on ApiException catch (e) {
       return Left(ApiFailure.fromException(e));
     }
