@@ -30,9 +30,6 @@ class AuthRepoImpl implements AuthRepo {
       debugPrint('$isConnected');
       try {
         final result = await remoteDataSource.login(email: email, password: password);
-        // await localDataSource.cacheData(key: 'CACHE_SUCCESS', value: result.success);
-        // await localDataSource.cacheData(key: 'CACHE_MESSAGE', value: result.message);
-        // await localDataSource.cacheData(key: 'CACHE_TOKEN', value: result.data['token']);
         await localDataSource.cacheApiResponse(result.success, result.message, result.data['token']);
 
         return Right(result);
@@ -41,13 +38,6 @@ class AuthRepoImpl implements AuthRepo {
       }
     } else {
       try {
-        // final success = await localDataSource.getLastSuccess();
-        // final message = await localDataSource.getLastMessage();
-        // final token = await localDataSource.getLastToken();
-
-        // return Right(ApiResponseModel(success: success, message: message, data: {
-        //   'token': token
-        // }));
         return Right(await localDataSource.getLastResponse());
       } on CacheException catch (e) {
         return Left(CacheFailure.fromException(e));
