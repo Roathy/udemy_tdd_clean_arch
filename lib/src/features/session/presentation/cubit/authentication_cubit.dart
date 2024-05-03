@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:tdd_clean_arch/src/features/session/data/models/api_response_model.dart';
 
+import '../../data/models/api_response_model.dart';
 import '../../domain/usecases/login.dart';
 
 part 'authentication_state.dart';
