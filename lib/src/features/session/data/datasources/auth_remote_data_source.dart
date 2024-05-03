@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:tdd_clean_arch/src/features/session/data/models/api_response_model.dart';
 
 import '../../../../../core/errors/exception.dart';
 import '../../../../../core/utils/constants.dart';
+import '../models/api_response_model.dart';
 
 abstract class AuthRemoteDataSource {
-  Future<Object> login({
+  Future<ApiResponseModel> login({
     required email,
     required password,
   });
@@ -20,7 +20,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final http.Client _client;
 
   @override
-  Future<Object> login({
+  Future<ApiResponseModel> login({
     required email,
     required password,
   }) async {
@@ -33,7 +33,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           headers: {
             'Content-Type': 'application/json',
             'X-Requested-With': 'XMLHttpRequest',
-            'X-App-MirHorizon': '2c87d4de6231dee7d4557627c3812497'
+            'X-App-MirHorizon': 'c07f795ddb34f1d63b9f1eb1786b1d08'
           });
       if (response.statusCode != 200 && response.statusCode != 201) {
         throw ApiException(
