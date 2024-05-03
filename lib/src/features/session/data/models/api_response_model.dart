@@ -10,7 +10,9 @@ class ApiResponseModel extends ApiResponse {
     required super.data,
   });
 
-  factory ApiResponseModel.fromJson(String source) => ApiResponseModel.fromMap(jsonDecode(source) as DataMap);
+  factory ApiResponseModel.fromJson(String source) => ApiResponseModel.fromMap(
+        jsonDecode(source) as DataMap,
+      );
 
   ApiResponseModel.fromMap(DataMap map)
       : this(
