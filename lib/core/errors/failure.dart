@@ -34,3 +34,23 @@ class ApiFailure extends Failure {
           statusCode: exception.statusCode,
         );
 }
+
+class CacheFailure extends Failure {
+  const CacheFailure({required super.statusCode, required super.message});
+
+  CacheFailure.fromException(CacheException exception)
+      : this(
+          message: exception.message,
+          statusCode: exception.statusCode,
+        );
+
+  @override
+  List<Object?> get props => [];
+}
+
+class ServerFailure extends Failure {
+  const ServerFailure({required super.statusCode, required super.message});
+
+  @override
+  List<Object?> get props => [];
+}
