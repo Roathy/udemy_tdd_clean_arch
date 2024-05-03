@@ -23,14 +23,14 @@ class UserCreated extends AuthenticationState {
   const UserCreated();
 }
 
-class UsersLoaded extends AuthenticationState {
-  const UsersLoaded(this.users);
+// class UsersLoaded extends AuthenticationState {
+// const UsersLoaded(this.users);
 
-  final List<User> users;
+// final List<User> users;
 
-  @override
-  List<Object> get props => users.map((user) => user.id).toList();
-}
+// @override
+// List<Object> get props => users.map((user) => user.id).toList();
+// }
 
 class AuthenticationError extends AuthenticationState {
   const AuthenticationError(this.message);
