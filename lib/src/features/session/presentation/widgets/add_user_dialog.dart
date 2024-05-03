@@ -28,7 +28,10 @@ class AddUserDialog extends StatelessWidget {
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   TextField(
                     controller: emailController,
-                    decoration: const InputDecoration(labelText: 'email'),
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      labelText: 'email',
+                    ),
                   ),
                   TextField(
                     controller: passwordController,
