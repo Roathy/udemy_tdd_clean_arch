@@ -48,7 +48,7 @@ class AuthRepoImpl implements AuthRepo {
         // return Right(ApiResponseModel(success: success, message: message, data: {
         //   'token': token
         // }));
-        return Right(localDataSource.getLastResponse());
+        return Right(await localDataSource.getLastResponse());
       } on CacheException catch (e) {
         return Left(CacheFailure.fromException(e));
       }
